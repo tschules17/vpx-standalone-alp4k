@@ -119,10 +119,12 @@ def process_alp4k_yml_file(entry):
 
   # use table-specific JSON file to set basic table info in readme
   markdown_content = "# " + table["name"] +" \n\n"
-  markdown_content += f"#### {table['name']} Instructions: \n" 
-  for instruction in table["special_instructions"]:
-    markdown_content += "- " + instruction + "\n"
-  markdown_content += "<br><br>\n\n"
+ 
+  if table["special_instructions"]:
+    markdown_content += f"#### {table['name']} Instructions: \n" 
+    for instruction in table["special_instructions"]:
+      markdown_content += "- " + instruction + "\n"
+    markdown_content += "<br><br>\n\n"
   markdown_content += "<details><summary><b>Show standard instructions</b></summary><br>\n\n"
   markdown_content += "- Copy the entire contents of this repo folder to your USB drive in the external folder\n\n"
   markdown_content += f"- Add your personalized launcher.elf and rename it to \"{table['name']}.elf.\"\n"
@@ -144,9 +146,6 @@ def process_alp4k_yml_file(entry):
   markdown_content += f"**Tester**: "+ table["tester"] +"\n\n"
   markdown_content += f"**FPS**: "+ str(table["FPS"]) +"\n\n"
 
-
-
-  
   # lookup table in VPSDB and generate VPX content for readme
   markdown_content += "## VPX File \n\n"
   table_search_id = table["vps_table_id"]
@@ -158,43 +157,51 @@ def process_alp4k_yml_file(entry):
   # get b2s file ids from table-specific JSON file and use them to get content
   #   from VPSDB
   b2s_search_ids = table["vps_b2s_ids"]
-
   markdown_content += "## DirectB2S \n\n"
   counter = 1
-  for b2s_search_id in b2s_search_ids:
-      if len(b2s_search_ids) > 1:  
-        markdown_content += "### Option: " + str(counter) + " \n\n"
-      result = find_vpsdb_item_by_id(vpsdb_file_data, b2s_search_id)
-      rom_content = generate_markdown(result)
-      markdown_content += rom_content
-      counter += 1
-  print('     -DirectB2S file processed')
+  if b2s_search_ids:
+    for b2s_search_id in b2s_search_ids:
+        if len(b2s_search_ids) > 1:  
+          markdown_content += "### Option: " + str(counter) + " \n\n"
+        result = find_vpsdb_item_by_id(vpsdb_file_data, b2s_search_id)
+        rom_content = generate_markdown(result)
+        markdown_content += rom_content
+        counter += 1
+  else:
+    markdown_content += f"   - N/A\n\n"
+    print('     -DirectB2S file processed')
 
   # get rom version/author from table-specific JSON file and use them to get content
   #   from VPSDB
   rom_search_data = table["vps_rom_ids"]
   markdown_content += "## ROMs \n\n"
   counter = 1
-  for item in rom_search_data:
-      if len(rom_search_data) > 1:  
-         markdown_content += "### Option: " + str(counter) + " \n\n"
-      version = item.get('version', "")
-      author = item.get('author', None)
-      result = find_vpsdb_roms(vpsdb_file_data, game_id, version, author)
-      for item in result:
-          rom_content = generate_markdown(item, False)
-          markdown_content += rom_content
-      data = {"rom_files": result}
-      counter += 1
+  if rom_search_data:
+    for item in rom_search_data:
+        if len(rom_search_data) > 1:  
+          markdown_content += "### Option: " + str(counter) + " \n\n"
+        version = item.get('version', "")
+        author = item.get('author', None)
+        result = find_vpsdb_roms(vpsdb_file_data, game_id, version, author)
+        for item in result:
+            rom_content = generate_markdown(item, False)
+            markdown_content += rom_content
+        data = {"rom_files": result}
+        counter += 1
   print('     -ROMs files processed.')
 
-  readme = open(folder_path + '/' + table["name"] +  '_readme.md', "w")
+  #instead of outputting to each dir, we will write to a temp_readmes folder
+  #output_path = folder_path
+  output_path = project_directory + '/.github/workflows/temp_readmes/'
+  os.makedirs(os.path.dirname(output_path), exist_ok=True)
+  readme = open(output_path + entry.name.replace(".yml", "") +  '_readme.md',\
+                 "w", encoding="utf-8", errors="ignore")
   readme.write(markdown_content)
   readme.close()
   print(f'{bcolors.OKGREEN}     -{table["name"]} readme generated!{bcolors.ENDC}')
 
 # open and read the JSON file from VPSDB
-vpsdb_file_path = project_directory + 'vpsdb.json'
+vpsdb_file_path = project_directory + '/.github/workflows/vpsdb.json'
 vpsdb_file_data = read_json_file(vpsdb_file_path)
 
 # get total table count and display it
@@ -204,6 +211,16 @@ table_count = len(external_folder_list)
 print(str(table_count) + " tables in '% s':" % root_dir)
 
 # loop through folders to find and process .alp4k files
-find_alp4k_yml_file_in_subdirs(root_dir, 0)
+
+# commenting out so we can pull directly from temp_yml folder for now
+#find_alp4k_yml_file_in_subdirs(root_dir, 0)
+
+yml_dir = project_directory + '.github/workflows/temp_yml'
+
+for entry in os.scandir(yml_dir):
+  if entry.is_file() and entry.name.endswith(".yml"):
+      print(f"     -yml file found : {entry.name}")
+      process_alp4k_yml_file(entry)
+
 
 
