@@ -7,7 +7,7 @@ import urllib.parse;
 debug_vpx_file_search = True
 debug_b2s_file_search = True
 debug_special_instructions = True
-debug_folder = 'vpx-goonies'
+debug_folder = ''
 
 class bcolors:
     HEADER = '\033[95m'
