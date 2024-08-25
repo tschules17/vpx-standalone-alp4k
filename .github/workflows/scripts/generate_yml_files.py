@@ -127,7 +127,7 @@ def get_special_instructions(readme):
         or line.__contains__("listed above and copy them into this folder")):
         pass
       else: 
-        yml_text += f"     {line}\n"
+        yml_text += f"     \"{line}\"\n"
 
   if debug_special_instructions:
     print(yml_text)    
@@ -297,7 +297,6 @@ def process_READMEmd_file(entry, dir):
       #yml = open(folder_path + '/' + entry.name +  '.yml', "w")
 
     yml_file_path = project_directory + "/.github/workflows/temp_yml/" + dir +  '.yml'
-    print(project_directory)
     os.makedirs(os.path.dirname(yml_file_path), exist_ok=True)
     yml_file = open(yml_file_path, "w", encoding="utf-8", errors="ignore")
     yml_file.write(yml_text)
