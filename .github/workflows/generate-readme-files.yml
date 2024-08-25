@@ -1,5 +1,5 @@
 # name to display in GitHub Actions
-name: Generate Readme Files
+name: Generate New READMEs from YAML files
 
 on:
   # Allows to manually run the job
@@ -27,7 +27,7 @@ jobs:
       run: pip install pyyaml
 
     - name: Run Python script
-      run: python .github/workflows/scripts/generate-readmes-from-yml.py
+      run: python .github/workflows/scripts/generate-readme-files.py
 
     - name: Commit changes
       run: |
