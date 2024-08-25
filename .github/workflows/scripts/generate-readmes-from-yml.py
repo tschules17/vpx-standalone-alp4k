@@ -3,6 +3,8 @@ import json;
 import yaml;
 import datetime;
 
+debug_folder = ''
+
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -43,9 +45,10 @@ def find_vpsdb_item_by_id(data, search_id):
     return None 
 
 def find_vpsdb_roms(data, game_id, version, author=None):
-  for rom_file in (game['romFiles'] for game in data if game['id'] == game_id):
-    if rom_file[0]['version'] == version:
-      return rom_file
+  if game_id:
+    for rom_file in (game['romFiles'] for game in data if game['id'] == game_id):
+      if rom_file[0]['version'] == version:
+        return rom_file
   return None
 
 # helper function to convert from epoch to readable date time
@@ -110,9 +113,11 @@ def find_alp4k_yml_file_in_subdirs(dir, indent):
 
 # process .alp4k file and generate readme
 def process_alp4k_yml_file(entry):
+  game_id = ""
    # open a table-specific JSON file (eventually iterate)
   folder_path = os.path.dirname(entry.path)
   with open(entry.path, 'r') as file:
+      #table_file_data = yaml.load(file, Loader=yaml.FullLoader)
       table_file_data = yaml.safe_load(file)
   print('     -.yml file data loaded')
   table = table_file_data
@@ -148,54 +153,65 @@ def process_alp4k_yml_file(entry):
 
   # lookup table in VPSDB and generate VPX content for readme
   markdown_content += "## VPX File \n\n"
-  table_search_id = table["vps_table_id"]
-  result = find_vpsdb_item_by_id(vpsdb_file_data, table_search_id)
-  game_id = result['game']['id']
-  markdown_content += generate_markdown(result)
+  if ("vps_table_id" in table):
+    table_search_id = table["vps_table_id"]
+    result = find_vpsdb_item_by_id(vpsdb_file_data, table_search_id)
+    if result:
+      if "game" in result:
+        game_id = result['game']['id']
+        markdown_content += generate_markdown(result)
   print('     -VPX file processed')
 
   # get b2s file ids from table-specific JSON file and use them to get content
   #   from VPSDB
-  b2s_search_ids = table["vps_b2s_ids"]
-  markdown_content += "## DirectB2S \n\n"
-  counter = 1
-  if b2s_search_ids:
-    for b2s_search_id in b2s_search_ids:
-        if len(b2s_search_ids) > 1:  
-          markdown_content += "### Option: " + str(counter) + " \n\n"
-        result = find_vpsdb_item_by_id(vpsdb_file_data, b2s_search_id)
-        rom_content = generate_markdown(result)
-        markdown_content += rom_content
-        counter += 1
-  else:
-    markdown_content += f"   - N/A\n\n"
-    print('     -DirectB2S file processed')
+  if ("vps_b2s_ids" in table):
+    b2s_search_ids = table["vps_b2s_ids"]
+    markdown_content += "## DirectB2S \n\n"
+    counter = 1
+    if b2s_search_ids:
+      for b2s_search_id in b2s_search_ids:
+          if len(b2s_search_ids) > 1:  
+            markdown_content += "### Option: " + str(counter) + " \n\n"
+          result = find_vpsdb_item_by_id(vpsdb_file_data, b2s_search_id)
+          if result:
+            if ("game" in result):
+              game_id = result['game']['id']
+          rom_content = generate_markdown(result)
+          markdown_content += rom_content
+          counter += 1
+    else:
+      markdown_content += f"   - N/A\n\n"
+      print('     -DirectB2S file processed')
 
   # get rom version/author from table-specific JSON file and use them to get content
   #   from VPSDB
-  rom_search_data = table["vps_rom_ids"]
-  markdown_content += "## ROMs \n\n"
-  counter = 1
-  if rom_search_data:
-    for item in rom_search_data:
-        if len(rom_search_data) > 1:  
-          markdown_content += "### Option: " + str(counter) + " \n\n"
-        version = item.get('version', "")
-        author = item.get('author', None)
-        result = find_vpsdb_roms(vpsdb_file_data, game_id, version, author)
-        for item in result:
-            rom_content = generate_markdown(item, False)
-            markdown_content += rom_content
-        data = {"rom_files": result}
-        counter += 1
-  print('     -ROMs files processed.')
+  if ("vps_rom_ids" in table):
+    rom_search_data = table["vps_rom_ids"]
+    markdown_content += "## ROMs \n\n"
+    counter = 1
+    if rom_search_data:
+      for item in rom_search_data:
+          if len(rom_search_data) > 1:  
+            markdown_content += "### Option: " + str(counter) + " \n\n"
+          version = item.get('version', "")
+          author = item.get('author', None)
+          result = find_vpsdb_roms(vpsdb_file_data, game_id, version, author)
+          if result:
+            for item in result:
+                rom_content = generate_markdown(item, False)
+                markdown_content += rom_content
+          data = {"rom_files": result}
+          counter += 1
+    else:
+      markdown_content += f"   - N/A\n\n"
+    print('     -ROMs files processed.')
 
   #instead of outputting to each dir, we will write to a temp_readmes folder
   #output_path = folder_path
   output_path = project_directory + '/.github/workflows/temp_readmes/'
   os.makedirs(os.path.dirname(output_path), exist_ok=True)
   readme = open(output_path + entry.name.replace(".yml", "") +  '_readme.md',\
-                 "w", encoding="utf-8", errors="ignore")
+                 "w")
   readme.write(markdown_content)
   readme.close()
   print(f'{bcolors.OKGREEN}     -{table["name"]} readme generated!{bcolors.ENDC}')
@@ -219,8 +235,9 @@ yml_dir = project_directory + '.github/workflows/temp_yml'
 
 for entry in os.scandir(yml_dir):
   if entry.is_file() and entry.name.endswith(".yml"):
-      print(f"     -yml file found : {entry.name}")
-      process_alp4k_yml_file(entry)
+      if (debug_folder == '' or debug_folder + ".yml" == entry.name):
+        print(f"     -yml file found : {entry.name}")
+        process_alp4k_yml_file(entry)
 
 
 

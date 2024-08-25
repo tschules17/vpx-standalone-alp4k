@@ -4,9 +4,10 @@ import re;
 from git import Repo;
 import urllib.parse;
 
-debug_vpx_file_search = False
-debug_b2s_file_search = False
+debug_vpx_file_search = True
+debug_b2s_file_search = True
 debug_special_instructions = True
+debug_folder = 'vpx-goonies'
 
 class bcolors:
     HEADER = '\033[95m'
@@ -40,14 +41,15 @@ def read_json_file(file_path):
 def find_readme_file_in_subdirs(dir, indent):
   for entry in os.scandir(dir):
     if entry.is_dir() and entry.name.startswith("vpx-"):
-      print (f"{bcolors.HEADER}{entry.name}{bcolors.ENDC}")  
+      if (debug_folder == '' or debug_folder == entry.name):
+        print (f"{bcolors.HEADER}{entry.name}{bcolors.ENDC}")  
 
-      # try to find the .readme file
-      found_in_sub = find_readme_file_in_subdirs(entry.path, indent+1)
-      if found_in_sub:
-        pass
-      else:
-        print(f"{bcolors.WARNING}     - README.md file NOT found in {entry.name}{bcolors.ENDC}")
+        # try to find the .readme file
+        found_in_sub = find_readme_file_in_subdirs(entry.path, indent+1)
+        if found_in_sub:
+          pass
+        else:
+          print(f"{bcolors.WARNING}     - README.md file NOT found in {entry.name}{bcolors.ENDC}")
     
     elif entry.is_file() and entry.name == "README.md":
       print(f"     - README.md file found in {dir}")
@@ -67,7 +69,7 @@ def parse_and_set_table_name(readme):
     match = re.search(table_name_pattern, readme, re.MULTILINE)
     if match:
       table_name = match.group(0).strip().lstrip('# ') 
-      return f"name: {table_name}\n" 
+      return f"name: '{table_name.replace("'", "''")}'\n" 
     else:
       raise ValueError("Failed to read table name")
   except Exception as e:
@@ -83,9 +85,9 @@ def get_earliest_commit_owner(repo_path, folder_path):
     # Return the part after the # if it exists, otherwise return the entire username
     trimmed_name = parts[1] if len(parts) > 1 else parts[0]
     if trimmed_name:
-      return f"tester: {trimmed_name}\n"
+      return f"tester: '{trimmed_name}'\n"
     else: 
-      return f"tester: ?\n"
+      return f"tester: '?'\n"
   except Exception as e:
     print(f"Error: {e}")
     return None
@@ -108,7 +110,7 @@ def get_FPS(readme):
   value_line = readme.splitlines()[fps_row_number + 2]
   values = [part.strip() for part in value_line.split("|")] 
   # Find the row containing the FPS value
-  return f"FPS: {values[fps_column_index]}\n"
+  return f"FPS: '{values[fps_column_index]}'\n"
   
 def get_special_instructions(readme):
   # get any instructions after the #instructions header (excluding the 3 standard rows)
@@ -126,8 +128,13 @@ def get_special_instructions(readme):
         or line.__contains__("Add your personalized launcher.elf and rename it to")\
         or line.__contains__("listed above and copy them into this folder")):
         pass
+      elif (line.isspace() or line == ''):
+        pass
       else: 
-        yml_text += f"     \"{line}\"\n"
+        line = line.replace("'", "''")
+        if line.startswith("- "):
+          line = line[2:]
+        yml_text += f"     - '{line}'\n"
 
   if debug_special_instructions:
     print(yml_text)    
@@ -143,6 +150,11 @@ def clean_url(url):
   url = url.replace("vpuniverse.com/forums/files/", "vpuniverse.com/files/")
   # Convert to lowercase
   url = url.lower()
+  # special case for batman66
+  url = url.replace("%c2%a0", "")
+  # special case for goonies
+  url = url.replace("7819-the-goonies-never-say-die-pinball-vpw-107/",
+                    "7819-the-goonies-never-say-die-pinball-vpw/")
   return url
 
 def find_table_in_VPSDB(url):
@@ -275,7 +287,7 @@ def parse_download_links(readme):
 def process_READMEmd_file(entry, dir):
    # open a table-specific JSON file (eventually iterate)
   folder_path = os.path.dirname(entry.path)
-  with open(folder_path + '/' "README.md", "r", errors="replace") as f:
+  with open(folder_path + '/' "README.md", "r", errors="ignore") as f:
   #readme = open(folder_path + '/' "README.md", "r", errors="replace")
     readme = f.read()
     print('     - README.md file data loaded')
@@ -298,7 +310,7 @@ def process_READMEmd_file(entry, dir):
 
     yml_file_path = project_directory + "/.github/workflows/temp_yml/" + dir +  '.yml'
     os.makedirs(os.path.dirname(yml_file_path), exist_ok=True)
-    yml_file = open(yml_file_path, "w", encoding="utf-8", errors="ignore")
+    yml_file = open(yml_file_path, "w")
     yml_file.write(yml_text)
     yml_file.close()
 
