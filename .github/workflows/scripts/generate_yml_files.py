@@ -6,7 +6,8 @@ import urllib.parse;
 
 debug_vpx_file_search = False
 debug_b2s_file_search = False
-debug_special_instructions = True
+debug_special_instructions = False
+debug_folder = ''
 
 class bcolors:
     HEADER = '\033[95m'
@@ -173,7 +174,7 @@ def find_vpx_file_ids(urls, table_data):
       for url in urls:
         for file_url in table_file["urls"]:
           if debug_vpx_file_search:
-            print(f"{bcolors.DEBUG}  DEBUG: VPXS URL Search")
+            print(f"{bcolors.DEBUG}  DEBUG: VPX URL Search")
             print(f"     -{clean_url(url)}")
             print(f"     -{clean_url(file_url["url"])}{bcolors.ENDC}")
           if clean_url(url) == clean_url(file_url["url"]):  # Case-insensitive comparison
