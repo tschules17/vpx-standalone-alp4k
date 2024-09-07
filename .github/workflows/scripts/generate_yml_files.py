@@ -77,6 +77,7 @@ def parse_and_set_table_name(readme):
 def get_earliest_commit_owner_from_xml(repo_path, folder_path):
   try:
     repo = Repo(repo_path)
+    # Get XML files in dir
     xml_files = repo.git.ls_files(folder_path + "/*.xml")
     if not xml_files:
       return f"tester: ?\n"
