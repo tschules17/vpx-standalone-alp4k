@@ -24,7 +24,7 @@ def get_earliest_commit(repo_path, file_path):
     """Gets the earliest commit for a file."""
     try:
         result = subprocess.run(
-            ['git', 'log', '--pretty=format:%ad', '--date=format:%Y-%m-%d %H:%M:%S', '--follow', '--', file_path],
+            ['git', 'log', '--reverse', '--pretty=format:%ad', '--date=format:%Y-%m-%d %H:%M:%S', '--follow', '--', file_path],
             cwd=repo_path,
             capture_output=True,
             text=True
@@ -114,7 +114,6 @@ external_folder = os.path.join(project_directory, 'external')
 print(external_folder)
 
 html_output = generate_html_table(project_directory, external_folder)
-print(html_output)
 # Write the HTML content to a file
 with open('index.html', 'w') as f:
   f.write(html_output)
