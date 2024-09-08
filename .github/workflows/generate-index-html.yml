@@ -23,7 +23,7 @@ jobs:
       with:
         python-version: '3.9'
         cache: 'pip'
-    - run: pip install -r .github/workflows/requirements.txt
+
       
     - name: Run Python script
       run: python .github/workflows/scripts/generate-index-html
