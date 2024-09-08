@@ -90,7 +90,7 @@ def generate_html_table(repo_path, folder_path):
       latest_folder_commit = get_latest_commit(repo_path, subfolder_path)
       print(f"{bcolors.DEBUG}  DEBUG: Latest Update: {latest_folder_commit}")
       html_content += f"<tr><td>{html.escape(folder_name)}</td>\n"
-      html_content += f"<td><img src='/external/{folder_name}/{folder_name}.png' width='100px'></td>\n"
+      html_content += f"<td><img src='external/{folder_name}/{folder_name}.png' width='100px'></td>\n"
       html_content += f"<td>{earliest_xml_commit}</td>\n"
       html_content += f"<td>{latest_folder_commit}</td></tr>\n"
     index += 1
