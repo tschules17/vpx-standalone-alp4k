@@ -48,6 +48,22 @@ def get_latest_commit(repo_path, folder_path):
   except subprocess.CalledProcessError:
     return None
 
+def generate_table_preview_column(readme, tablename):
+    html_content = '<td>'
+    readme.seek(0)
+    for line in readme:
+        if line.find("Table Preview") != -1:
+            try:
+                url = re.search(r'!\[Table Preview\]\(([^ \r\n]+)', line).group(1)
+                print(url)
+            except AttributeError:
+                url = re.search(r'!\[Table Preview\]\(([^ \r\n]+)', line)
+            if url:
+              url = url.rstrip(')')
+              html_content += '<img src="'+ url + '" class="thumbnail-img" alt="' + tablename + '" width="100px"/>'
+    html_content += '</td>' + '\n' 
+    return html_content 
+
 def generate_html_table(repo_path, folder_path):
   """Generates an HTML table listing subfolders with commit history."""
 
@@ -57,15 +73,19 @@ def generate_html_table(repo_path, folder_path):
   <head>
     <title>Table Listing</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="index.css"/>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
+    <script src="index.js"></script>
+
 </head>
-  <body>
+  <body  onload = 'runJS()'>
     <table id="myTable" class="display" style="width:100%">
      <thead>
       <tr>
         <th>Table Name</th>
         <th>Image</th>
+        <th>Table Preview</th>
         <th>Date Added</th>
         <th>Latest Update</th>
       </tr>
@@ -84,13 +104,14 @@ def generate_html_table(repo_path, folder_path):
         print(f"{bcolors.DEBUG}  DEBUG: Date Added: {earliest_xml_commit}")
       else:
         earliest_xml_commit = None
-      png_files = [f for f in os.listdir(subfolder_path) if f.endswith('.png')]
-      if png_files:
-         first_png_file = os.path.join(subfolder_path, png_files[0])
+
+      readme = open(subfolder_path + '/' "README.md", "r", errors="replace")
+    
       latest_folder_commit = get_latest_commit(repo_path, subfolder_path)
       print(f"{bcolors.DEBUG}  DEBUG: Latest Update: {latest_folder_commit}")
       html_content += f"<tr><td>{html.escape(folder_name)}</td>\n"
       html_content += f"<td><img src='external/{folder_name}/{folder_name}.png' width='100px'></td>\n"
+      html_content += generate_table_preview_column(readme, folder_name)
       html_content += f"<td>{earliest_xml_commit}</td>\n"
       html_content += f"<td>{latest_folder_commit}</td></tr>\n"
     index += 1
@@ -99,11 +120,19 @@ def generate_html_table(repo_path, folder_path):
 
   html_content += """
     </table>
+    <div id="myModal" class="modal">\n
+    <span class="close">&times;</span>\n
+    <img class="modal-content" id="img01">\n
+    <div id="caption"></div>
+  </div>\n
   <script type="text/javascript">
     $(document).ready( function () {
+        runJS();
         $('#myTable').DataTable();
     } );
   </script>
+
+
   </body>
   </html>
   """
