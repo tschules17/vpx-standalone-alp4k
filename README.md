@@ -46,6 +46,7 @@ Minimum VPX Standalone build: 10.8.0-1983-b84441e
 | [Aliens (Original 2020)](external/vpx-aliens) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | 60 |
 | [Amazing Spiderman - Sinister Six Edition (Gottlieb 1980)](external/vpx-amazingspidermansse) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 48 |
 | [Amazon Hunt (Gottlieb 1983)](external/vpx-amazonhunt) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 60 |
+| [American Graffiti (Original 2024)](external/vpx-agraffiti) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 40 |
 | [Apollo 13 (Sega 1995)](external/vpx-apollo13) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 47 |
 | [Arena (Gottlieb 1987)](external/vpx-arena1C3S) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 45 |
 | [Atlantis (Bally 1989)](external/vpx-atlantis) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 48 |
@@ -112,7 +113,7 @@ Minimum VPX Standalone build: 10.8.0-1983-b84441e
 | [Cosmic Gunfight (Williams 1982)](external/vpx-cosmicgunfight) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | 60 |
 | [Creature from the Black Lagoon (Bally 1992)](external/vpx-cftbl) | :white_check_mark: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: | 40 |
 | [Creature From The Black Lagoon - BW Edition (1992)](external/vpx-creaturebw) | :white_check_mark: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: | 40 | 
-| [CSI (Stern 2008) - LED Mod](external/vpx-csiled) | :white_check_mark: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: | 45 | 
+| [CSI - LED Mod (Stern 2008)](external/vpx-csiled) | :white_check_mark: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: | 45 | 
 | [Cue Ball Wizard (Gottlieb 1992)](external/vpx-cueball) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 33 |
 | [Cyclone - JP (Williams 1988)](external/vpx-cyclone) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 40 |
 | [Deadpool - JP (Original 2021)](external/vpx-deadpool) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 60 |
@@ -121,6 +122,7 @@ Minimum VPX Standalone build: 10.8.0-1983-b84441e
 | [Diner (Williams 1990)](external/vpx-diner) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 40 |
 | [Dirty Harry (Williams 1995)](external/vpx-dirtyharry) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 45 |
 | [Doctor Who (Bally 1992)](external/vpx-doctorwho) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 35 |
+| [Dolly Parton (Bally 1979)](external/vpx-dolly) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | 60 |
 | [Dr. Dude (Bally 1999)](external/vpx-drdude) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 42 |
 | [Dracula (Stern 1979)](external/vpx-dracula) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 53 |
 | [Ducktales - Quest For Money (Original 2020)](external/vpx-ducktales) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 60 |
@@ -134,6 +136,7 @@ Minimum VPX Standalone build: 10.8.0-1983-b84441e
 | [Elvis (Stern 2004)](external/vpx-elvis) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 50 |
 | [Embryon (Bally 1981)](external/vpx-embryon) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 29 |
 | [Escape from the Lost World (Bally 1988)](external/vpx-escapefromthelostworld) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 50 |
+| [Evel Knievel (Bally 1977)](external/vpx-evelknievel) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | 50 |
 | [Evil Dead 3 Army of Darkness (TBA 2020)](external/vpx-armyofdarkness) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: | 52 |
 | [F-14 Tomcat Hanibals Mod (Williams, 1987)](external/vpx-f14tomcat) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 40 |
 | [Family Guy (Stern 2007)](external/vpx-familyguy) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 28 |
@@ -164,7 +167,7 @@ Minimum VPX Standalone build: 10.8.0-1983-b84441e
 | [Gladiators (Gottlieb 1993)](external/vpx-gladiators) | :white_check_mark: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: | 45 |
 | [Godfather, The (Original 2024)](external/vpx-godfather) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 60 |
 | [Godzilla (Sega 1998)](external/vpx-godzilla) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 36 |
-| [Godzilla LE (Sega - Stern Mashup (Original 2021)](external/vpx-godzillale) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 39 |
+| [Godzilla LE (Sega - Stern Mashup) (Original 2021)](external/vpx-godzillale) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 39 |
 | [Goin' Nuts (Gottlieb 1983)](external/vpx-goinnuts) | :white_check_mark: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: | 40 |
 | [Gold Wings (Gottlieb 1986)](external/vpx-goldwings) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 45 |
 | [Golden Cue (Sega 1998)](external/vpx-goldencue) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 38 |
@@ -174,12 +177,15 @@ Minimum VPX Standalone build: 10.8.0-1983-b84441e
 | [Grand Lizard (Williams 1986)](external/vpx-grandlizard) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 40 |
 | [Grand Prix - JP (Stern 2005)](external/vpx-grandprix) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 52 |
 | [Grand Slam (Gottlieb 1972)](external/vpx-grandslam1972) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: | 45 |
+| [Grease (Original 2020)](external/vpx-grease) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 60 |
+| [Grease B&W Pro (2021)](external/vpx-greaseblackandwhite) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 60 |
 | [Guardians of the Galaxy Trilogy (Original 2023)](external/vpx-gogtrilogy) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 60 |
 | [Guns N' Roses (Data East 1994)](external/vpx-gnr) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 40 |
 | [Hardbody (Bally 1987)](external/vpx-hardbody) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | 48 |
 | [Harley Davidson (Bally 1991)](external/vpx-hdavidson) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 50 |
 | [Harley Davidson (Sega 1999)](external/vpx-harleyd) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 40 |
 | [Halloween 1978-1981 (Original 2022)](external/vpx-halloween) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 40 |
+| [Hellboy Pinball (Original 2024)](external/vpx-hellboy) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 40 |
 | [HipHop (Original 2024)](external/vpx-hiphop) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 59 |
 | [Hook (Data East 1992)](external/vpx-hook) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 35 |
 | [Horrorburg - JP's (Original 2023)](external/vpx-horrorburg) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 57 |
@@ -227,13 +233,14 @@ Minimum VPX Standalone build: 10.8.0-1983-b84441e
 | [Mario Andretti (Gottlieb 1995)](external/vpx-marioandretti) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 33 |
 | [Mary Shelley's Frankenstein (Sega 1995)](external/vpx-maryshelleyfrank) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 40 |
 | [Mata Hari (Bally 1978)](external/vpx-matahari) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 60 |
-| [Mask, The (Original 2019)](external/vpx-themask) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 52 |
+| [Mask, The (Original 2019)](external/vpx-themask) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | 60 |
 | [Maverick (Data East 1994)](external/vpx-maverick) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 35 |
 | [Medieval Madness (Williams 1997)](external/vpx-mm) | :white_check_mark: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: | 40 |
 | [Medusa (Bally 1981)](external/vpx-medusa) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 32 |
 | [Men in Black Trilogy (Original 2024)](external/vpx-meninblack) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 60 |
 | [Mephisto (Cirsa 1987)](external/vpx-mephisto) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 60 |
 | [Metallica Premium Monsters (Stern 2013)](external/vpx-metallica) | :white_check_mark: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: | 30 |
+| [Metallica Pro (JP's) (Stern 2013)](external/vpx-jpmetallica) | :white_check_mark: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: | 60 |
 | [Metropolis (Original 2022)](external/vpx-metropolis) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 46 |
 | [MF DOOM (GOILL773 2024)](external/vpx-mfdoom) | :white_check_mark: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :x: | 35 |
 | [Miami Vice (Original 2020)](external/vpx-miamivice) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 33 |
@@ -276,6 +283,7 @@ Minimum VPX Standalone build: 10.8.0-1983-b84441e
 | [Q'bert's Quest (Gottlieb 1983)](external/vpx-qbertquest) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 42 |
 | [Quicksilver (Stern 1980)](external/vpx-quicksilver) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 49 |
 | [Radical! (Bally 1990)](external/vpx-rad) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 42 | 
+| [Ramones (Original 2021/1972)](external/vpx-ramones) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: | 50 |
 | [Real Ghostbusters, The (JPs GB Mod) (Original 2023)](external/vpx-realghostbusters) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 57 |
 | [Re-Animator (Original 2022)](external/vpx-reanimator) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 54 |
 | [Red & Ted's Road Show (Williams 1994)](external/vpx-redandteds) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 35 |
@@ -289,8 +297,9 @@ Minimum VPX Standalone build: 10.8.0-1983-b84441e
 | [Samba (LTD do Brasil 1976)](external/vpx-samba) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: | 47 |
 | [Sands of the Aton - JP (Original 2023)](external/vpx-sandsaton) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: | 60 |
 | [Scared Stiff (Bally 1996)](external/vpx-scaredstiff) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 40 |
-| [Scooby Doo (2022)](external/vpx-scoobydoo) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 50 |
+| [Scooby Doo (Original 2022)](external/vpx-scoobydoo) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 50 |
 | [Seawitch - JP's (Stern 1980)](external/vpx-seawitch) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 60 |
+| [Secret Agent (Original 2024)](external/vpx-secretagent) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 30 |
 | [Senna Prototype Edition (Culik Pinball 2020)](external/vpx-senna) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: | 60 |
 | [Serious Sam (Original 2017)](external/vpx-ssam) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 47 |
 | [Shadow, The (Bally 1994)](external/vpx-theshadow) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 52 |
@@ -354,6 +363,7 @@ Minimum VPX Standalone build: 10.8.0-1983-b84441e
 | [Trailer Park Boys - Pin-Ballers (Clairvius 2024)](external/vpx-trailerparkboys) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | 60 |
 | [Transformers G1 Generation One (Original 2018)](external/vpx-transformersg1) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: | 60 |
 | [Transformers Pro (Stern 2011)](external/vpx-transformers) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 40 |
+| [Transporter: The Rescue (Bally 1989)](external/vpx-transporter) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | 30 |
 | [Trick 'r Treat (Original 2023)](external/vpx-trickrtreat) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 60 |
 | [Tron Legacy LE (Stern 2011)](external/vpx-tronlegacy) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 35 |
 | [Truck Stop (Bally 1988)](external/vpx-truckstop) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 38 |
@@ -380,6 +390,7 @@ Minimum VPX Standalone build: 10.8.0-1983-b84441e
 | [Wipe Out (Gottlieb 1993)](external/vpx-wipeout) | :white_check_mark: | :white_check_mark: | :white_check_mark: |:white_check_mark: | :white_check_mark: | 52 |
 | [Wizard! (Bally 1975)](external/vpx-wizard) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 60 |
 | [World Challenge Soccer (Gottlieb 1994)](external/vpx-wcsoccer) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 50 |
+| [WOW Monopoly, JPs (Original 2015)](external/vpx-wowmonopoly) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 60 |
 | [Wrath of Olympus - JP (Original 2022)](external/vpx-wrath) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | 60 |
 | [WWF Royal Rumble (Data East 1994)](external/vpx-royalrumble) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 40 |
 | [Xenon (Bally 1980)](external/vpx-xenon) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | 40 |
